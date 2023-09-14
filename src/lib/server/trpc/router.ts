@@ -9,7 +9,7 @@ export const router = t.router({
         username: z.string(),
         sentAt: z.number()
     })).query(async ({ ctx, input }) => {
-        pusher.trigger("chatpat-prototype", "new-message", {
+        await pusher.trigger("chatpat-prototype", "new-message", {
             id: input.id,
             message: input.message,
             username: input.username,
